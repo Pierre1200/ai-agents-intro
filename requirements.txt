@@ -1,1 +1,3 @@
-# No external dependencies required for this starter scaffold.
+google-adk
+litellm
+python-dotenv
