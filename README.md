@@ -61,3 +61,44 @@ ______ (à compléter plus tard, une fois main.py fonctionnel)
 
 ## Reflection
 ______ (à compléter en fin de projet — ex: pourquoi un modèle local plutôt qu'une API cloud pour ce projet ? quelles limites as-tu déjà rencontrées avec qwen3:8b ?)
+
+## Example Output
+
+Command:
+````bash
+python main.py "Python decorators"
+````
+
+Output:
+````markdown
+## Explanation  
+En Python, un **décorateur** est une fonction qui permet d'ajouter des fonctionnalités à une autre fonction sans la modifier directement. Il s'agit d'une forme de "sucre syntaxique" qui permet d'envelopper une fonction existante avec du code supplémentaire (comme le logging, la validation, ou la gestion des erreurs). Un décorateur est défini avec la syntaxe `@decorator` juste avant la définition de la fonction qu'il modifie.
+
+## Key Concepts  
+- **Fonction première classe** : Les fonctions peuvent être passées en paramètres, retournées ou assignées à des variables.  
+- **Décorateur** : Une fonction qui prend une autre fonction en entrée et retourne une nouvelle fonction modifiée.  
+- **`*args` et `**kwargs`** : Permettent de gérer un nombre variable d'arguments lors de l'appel des fonctions.  
+- **Syntaxe `@decorator`** : Simplifie l'application d'un décorateur à une fonction.  
+
+## Example  
+```python
+def log_message(func):
+    def wrapper(*args, **kwargs):
+        print(f"Appel de {func.__name__} avec arguments: {args}, {kwargs}")
+        result = func(*args, **kwargs)
+        return result
+    return wrapper
+
+@log_message
+def saluer(nom):
+    print(f"Bonjour, {nom}!")
+
+saluer("Alice")
+```
+
+**Sortie :**  
+````
+Appel de saluer avec arguments: ('Alice',), {}
+Bonjour, Alice!
+````
+````
